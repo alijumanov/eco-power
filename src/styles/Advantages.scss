@@ -1,0 +1,102 @@
+// colors //
+
+$info: #1566A3;
+$dark: #000000;
+$grown: #4E4C3D;
+$silver: #F6F6F6;
+$primary: #214856;
+$success: #D8EB83;
+$secondary: #E5E5EA;
+
+.Advantages {
+    .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (max-width:767px) {
+            flex-direction: column;
+        }
+
+        .sub-title{
+            width: 100%;
+        }
+
+        .imgs {
+            margin-left: -10vw;
+            width: calc(37% + 10vw);
+
+            @media (max-width:767px) {
+                margin: 0;
+                width: 100%;
+            }
+
+            .img {
+                height: auto;
+                min-width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        .infos {
+            width: 56%;
+
+            @media (max-width:767px) {
+                width: 100%;
+            }
+
+            .info {
+                display: flex;
+
+                &:last-child {
+                    .texts {
+                        border: none;
+                    }
+                }
+
+                .number {
+                    font-weight: 700;
+                    font-size: 5.4vw;
+                    color: $secondary;
+                    margin-top: -0.5vw;
+                    font-family: 'Inter', sans-serif;
+
+                    @media (max-width:767px) {
+                        font-size: 13vw;
+                    }
+                }
+
+                .texts {
+                    display: grid;
+                    padding-left: 0;
+                    padding-right: 0;
+                    border-bottom: solid 2px $secondary;
+                    grid-template-columns: repeat(2, 2fr);
+
+                    @media (max-width:767px) {
+                        grid-template-columns: repeat(1, 1fr);
+
+                        .name {
+                            font-weight: 500;
+                            font-family: zonapro-500;
+                        }
+                    }
+
+                    .name {
+                        color: $dark;
+                        font-weight: 600;
+                        font-family: zonapro-600;
+                    }
+
+                    .min-text {
+                        color: $dark;
+                        font-weight: 400;
+                        font-family: zonapro-400;
+                    }
+                }
+            }
+        }
+    }
+}

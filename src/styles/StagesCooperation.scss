@@ -1,0 +1,147 @@
+.StagesCooperation {
+    height: 200vw;
+    display: flex;
+    justify-content: center;
+
+    @media (max-width:767px) {
+        height: 1900px;
+    }
+
+    .car {
+        top: 10vw;
+        z-index: 2;
+        width: 5vw;
+        height: 8vw;
+        position: absolute;
+        transition: 0.25s linear;
+        -webkit-transition: 0.25s linear;
+        -moz-transition: 0.25s linear;
+        -ms-transition: 0.25s linear;
+        -o-transition: 0.25s linear;
+
+        @media (max-width:767px) {
+            top: 20vw;
+            width: 13vw;
+            height: 20vw;
+        }
+
+        .img {
+            max-width: 100%;
+            min-width: 100%;
+            transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+            -moz-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            -o-transform: rotate(180deg);
+        }
+    }
+
+    .wrapper {
+        height: 100%;
+        display: flex;
+        position: relative;
+        align-items: center;
+        flex-direction: column;
+
+        .sub-title {
+            text-align: center;
+        }
+
+        .line {
+            height: 100%;
+            margin-top: 5vw;
+            border-left: dashed 3px black;
+
+            @media (max-width:767px) {
+                margin-top: 10vw;
+                border-width: 2px;
+            }
+        }
+
+        .card {
+            width: 20%;
+            display: flex;
+            position: absolute;
+            align-items: center;
+            border: solid 1px black;
+            background-color: rgb(237, 237, 237);
+
+            &::before {
+                width: 7vw;
+                content: "";
+                position: absolute;
+                border-top: dashed 2px black;
+            }
+
+            @media (max-width:767px) {
+                width: 40%;
+                padding: 3vw;
+            }
+        }
+
+        .card-1 {
+            top: 18%;
+            margin-left: -35%;
+
+            &::before {
+                right: -7vw;
+            }
+
+            @media (max-width:767px) {
+                margin-left: -55%;
+            }
+        }
+
+        .card-2 {
+            top: 38%;
+            margin-right: -35%;
+
+            &::before {
+                left: -7vw;
+            }
+
+            @media (max-width:767px) {
+                margin-right: -55%;
+            }
+        }
+
+        .card-3 {
+            top: 56%;
+            margin-left: -35%;
+
+            &::before {
+                right: -7vw;
+            }
+
+            @media (max-width:767px) {
+                margin-left: -55%;
+            }
+        }
+
+        .card-4 {
+            top: 74%;
+            margin-right: -35%;
+
+            &::before {
+                left: -7vw;
+            }
+
+            @media (max-width:767px) {
+                margin-right: -55%;
+            }
+        }
+
+        .card-5 {
+            top: 90%;
+            margin-left: -35%;
+
+            &::before {
+                right: -7vw;
+            }
+
+            @media (max-width:767px) {
+                margin-left: -55%;
+            }
+        }
+    }
+}

@@ -1,0 +1,109 @@
+.HomeAbout {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .imgs {
+            width: 100%;
+            position: relative;
+
+            .img {
+                height: auto;
+                max-width: 100%;
+                min-width: 100%;
+            }
+
+            .logo {
+                top: 3vw;
+                left: 3vw;
+                z-index: 2;
+                width: 5vw;
+                height: auto;
+                position: absolute;
+
+                @media (max-width:767px) {
+                    width: 8vw;
+                }
+            }
+        }
+
+        .infos {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            @media (max-width:767px) {
+                gap: 5vw;
+                flex-direction: column;
+            }
+
+            .texts {
+                width: 67%;
+                display: flex;
+                flex-direction: column;
+
+                @media (max-width:767px) {
+                    width: 100%;
+                }
+
+                .sub-title {
+                    margin-bottom: 0;
+                }
+
+                .big-text {
+                    line-height: 1.7vw;
+
+                    @media (max-width:767px) {
+                        line-height: 4.5vw;
+                    }
+                }
+            }
+
+            .links {
+                width: 30%;
+                display: flex;
+                align-items: flex-start;
+                justify-content: flex-end;
+
+                @media (max-width:767px) {
+                    width: 100%;
+                    justify-content: flex-start;
+                }
+
+                .explore {
+                    display: flex;
+                    color: white;
+                    padding: 1vw 3vw;
+                    font-weight: 400;
+                    align-items: center;
+                    text-decoration: none;
+                    font-family: craft-400;
+                    background-color: black;
+
+                    @media (max-width:767px) {
+                        padding: 2.5vw 7vw;
+                    }
+
+                    .icon {
+                        width: 1.5vw;
+                        height: 1.5vw;
+                        display: flex;
+                        fill: white;
+                        align-items: center;
+                        justify-content: center;
+                        transform: rotate(-45deg);
+                        -webkit-transform: rotate(-45deg);
+                        -moz-transform: rotate(-45deg);
+                        -ms-transform: rotate(-45deg);
+                        -o-transform: rotate(-45deg);
+
+                        @media (max-width:767px) {
+                            width: 4vw;
+                            height: 4vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

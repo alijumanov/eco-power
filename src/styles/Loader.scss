@@ -1,0 +1,44 @@
+.Loader {
+    top: 0;
+    left: 0;
+    z-index: 14;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+
+    .loading {
+        width: 13vw;
+        height: 13vw;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        animation-name: loading;
+        animation-duration: 2s;
+        border: solid 1vw black;
+        border-left-color: transparent;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+
+        @media (max-width:600px) {
+            width: 20vw;
+            height: 20vw;
+            border-width: 2vw;
+        }
+    }
+
+    @keyframes loading {
+        100% {
+            transform: rotate(360deg);
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+        }
+    }
+}

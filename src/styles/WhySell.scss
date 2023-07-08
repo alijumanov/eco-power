@@ -1,0 +1,46 @@
+.WhySell {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .infos {
+            display: grid;
+            grid-template-columns: repeat(4, 4fr);
+
+            @media (max-width:767px) {
+                gap: 6vw;
+                grid-template-columns: repeat(2, 2fr);
+            }
+
+            .info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+
+                .img {
+                    width: auto;
+                    max-height: 6.5vw;
+                    min-height: 6.5vw;
+
+                    @media (max-width:767px) {
+                        max-height: 12vw;
+                        min-height: 12vw;
+                    }
+                }
+
+                .name {
+                    font-weight: 600;
+                    font-family: craft-600;
+                }
+
+                .text {
+                    line-height: 1.3vw;
+
+                    @media (max-width:767px) {
+                        line-height: 4vw;
+                    }
+                }
+            }
+        }
+    }
+}

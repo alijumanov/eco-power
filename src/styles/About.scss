@@ -1,0 +1,54 @@
+.About {
+    padding-top: 7vw !important;
+
+    @media (max-width:767px) {
+        padding-top: 20vw !important;
+    }
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .imgs {
+            width: 100%;
+            position: relative;
+
+            .img {
+                height: auto;
+                max-width: 100%;
+                min-width: 100%;
+            }
+
+            .logo {
+                top: 3vw;
+                left: 3vw;
+                z-index: 2;
+                width: 5vw;
+                height: auto;
+                position: absolute;
+
+                @media (max-width:767px) {
+                    width: 8vw;
+                }
+            }
+        }
+
+        .texts {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .sub-title {
+                margin-bottom: 0;
+            }
+
+            .big-text {
+                line-height: 1.7vw;
+
+                @media (max-width:767px) {
+                    line-height: 4.5vw;
+                }
+            }
+        }
+    }
+}

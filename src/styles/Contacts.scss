@@ -1,0 +1,89 @@
+.Contacts {
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 2fr);
+
+        @media (max-width:767px) {
+            gap: 6vw;
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .texts {
+            display: flex;
+            padding-right: 4vw;
+            flex-direction: column;
+
+            @media (max-width:767px) {
+                padding: 0;
+            }
+
+            .socials {
+                display: flex;
+                align-items: center;
+
+                .social {
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+
+                    .icon {
+                        width: 2vw;
+                        height: 2vw;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        @media (max-width:767px) {
+                            width: 6vw;
+                            height: 6vw;
+                        }
+                    }
+                }
+            }
+        }
+
+        .forms {
+            display: flex;
+            flex-direction: column;
+            background-color: #F8F8F8;
+
+            .input {
+                width: 100%;
+                outline: none;
+                background-color: white;
+                border: solid 1px #dddddd;
+
+                &:focus {
+                    border-color: black;
+                }
+            }
+
+            .red-line {
+                border: solid 1px red;
+            }
+
+            input::-webkit-inner-spin-button,
+            input::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            input[type=number] {
+                appearance: 0;
+                -moz-appearance: 0;
+            }
+
+            .explore {
+                display: flex;
+                color: white;
+                cursor: pointer;
+                font-weight: 600;
+                align-items: center;
+                font-family: craft-600;
+                justify-content: center;
+                background-color: black;
+                border: solid 1px black;
+            }
+        }
+    }
+}
