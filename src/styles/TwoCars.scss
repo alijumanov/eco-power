@@ -1,6 +1,7 @@
 .TwoCars {
     display: flex;
     padding: 3vw 0 !important;
+    background-color: white;
     justify-content: space-between;
 
     @media (max-width:767px) {

@@ -1,23 +1,15 @@
 import React from 'react';
-import UsedCars from './UsedCars';
-import '../styles/Categories.scss';
+import '../styles/SavedProducts.scss';
 import { useQuery } from 'react-query';
+import { fetchCarsData } from '../api/api';
 import { useTranslation } from 'react-i18next';
-import { getDescription, getName } from '../languages/language';
-import { Link, useLocation, useParams } from 'react-router-dom';
-import { fetchCarsData, fetchCategoriesData } from '../api/api';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProductsSaved } from '../redux/actions/planActions';
 import { HeartIcon, HeartOIcon } from '../assets/svgicons';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { getDescription, getName } from '../languages/language';
+import { addProductsSaved } from '../redux/actions/planActions';
 
-const Categories = ({ changeProdValue }) => {
-
-    const { id } = useParams();
-    const { pathname } = useLocation();
-
-    // data of categories
-
-    const { data } = useQuery('categories', fetchCategoriesData);
+const SavedProducts = ({ changeProdValue }) => {
 
     // data of cars
 
@@ -34,18 +26,15 @@ const Categories = ({ changeProdValue }) => {
         dispatch(addProductsSaved(savedProducts?.includes(item) ? [...savedProducts?.filter((c) => c != item)] : [...savedProducts?.filter((c) => c != item), item]));
     };
 
+    let lang = localStorage.getItem('i18nextLng')
+
     return (
-        <>
-            <div className='Categories parent'>
-                <div className="wrapper">
-                    <div className="left gap-1">
-                        <Link to="/all-products" className={`big-text explore ${pathname == "/all-products" && "active"}`}>{t("all_model")}</Link>
-                        {data?.data?.map((item) => (
-                            <Link key={item.id} to={`/categories/${item.id}`} className={`big-text explore ${item.id == id && "active"}`}>{getName(item)}</Link>
-                        ))}
-                    </div>
+        <div className='SavedProducts parent'>
+            <div className="wrapper">
+                {savedProducts.length > 0 ?
                     <div className="right gap-2">
-                        {dataCars?.data?.data?.filter((c) => id ? c.brand == id : c).map((item) => (
+                        {dataCars?.data?.data?.map((item) => (
+                            savedProducts.includes(item.id) &&
                             <div key={item.id} className="product gap-1">
                                 <button className="heart-icon" onClick={() => saveProduct(item.id)}>
                                     {savedProducts?.includes(item.id) ?
@@ -67,11 +56,12 @@ const Categories = ({ changeProdValue }) => {
                             </div>
                         ))}
                     </div>
-                </div>
+                    :
+                    <h1 className="title">{lang == 'uz' ? "Birorta ham avtomobilni saqlamagansiz" : lang == 'ru' ? "Вы не сохранили ни одной машины" : "You have not saved any cars"}</h1>
+                }
             </div>
-            <UsedCars changeProdValue={changeProdValue} />
-        </>
+        </div>
     );
 };
 
-export default Categories;
+export default SavedProducts;

@@ -4,7 +4,8 @@ import Logo from '../assets/images/logo.png';
 import { useTranslation } from 'react-i18next';
 import { changeLang } from '../languages/language';
 import { Link, useLocation } from 'react-router-dom';
-import { CloseIcon, InstagramIcon, MenuIcon, TelegramIcon } from '../assets/svgicons';
+import { CloseIcon, InstagramIcon, LightHeartIcon, MenuIcon, TelegramIcon } from '../assets/svgicons';
+import { useSelector } from 'react-redux';
 
 const Navbar = ({ changeScrollFaq, changeScrollAbout, changeScrollTopCars, changeScrollCategories, changeScrollVideoReviews }) => {
 
@@ -36,6 +37,10 @@ const Navbar = ({ changeScrollFaq, changeScrollAbout, changeScrollTopCars, chang
 
     const [showMenu, setShowMenu] = useState(false);
 
+    // redux options
+
+    let savedProducts = useSelector((state) => state.savedProducts.products);
+
     return (
         <div className={`Navbar ${pathname == "/" ? scroll && "dark-navbar" : "dark-navbar"}`}>
             <div className="navbar wrapper">
@@ -63,6 +68,9 @@ const Navbar = ({ changeScrollFaq, changeScrollAbout, changeScrollTopCars, chang
                         <Link to="/" className='text' onClick={changeScrollCategories}>{t("nav3")}</Link>
                         <Link to="/" className='text' onClick={changeScrollVideoReviews}>{t("nav4")}</Link>
                         <Link to="/" className='text' onClick={changeScrollFaq}>{t("nav5")}</Link>
+                        <Link to="/saved" className='text'>
+                            <div className="icon"><LightHeartIcon />  <span className='min-text'>{savedProducts?.length}</span></div>
+                        </Link>
                         <a href="tel:+998935559551" className="tel-btn round-07 text ver-2">+99893 555 95 51</a>
                         <div className="close-icon ver-2" onClick={() => setShowMenu(false)}><CloseIcon /></div>
                     </div>

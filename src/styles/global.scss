@@ -94,6 +94,7 @@ html {
     height: 100%;
     position: sticky;
     overflow: hidden;
+    background-color: white;
 }
 
 .wrapper {
@@ -850,4 +851,25 @@ html {
     height: 15.8vw;
     background: #60AFCB;
     filter: blur(129.841px);
+}
+
+// heart options
+
+.heart-icon {
+    top: 1vw;
+    right: 1vw;
+    width: 2vw;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+
+    @media (max-width:767px) {
+        width: 6vw;
+        top: 2.5vw;
+        right: 2.5vw;
+    }
 }

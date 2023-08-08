@@ -5,10 +5,12 @@ import { Autoplay } from "swiper";
 import { useQuery } from 'react-query';
 import { Link } from 'react-router-dom';
 import { fetchCarsData } from '../api/api';
-import { PlayIcon } from '../assets/svgicons';
+import { HeartIcon, HeartOIcon, PlayIcon } from '../assets/svgicons';
 import { useTranslation } from 'react-i18next';
 import { getName } from '../languages/language';
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useDispatch, useSelector } from 'react-redux';
+import { addProductsSaved } from '../redux/actions/planActions';
 
 const UsedCars = ({ changeProdValue }) => {
 
@@ -17,6 +19,15 @@ const UsedCars = ({ changeProdValue }) => {
     const { data } = useQuery('cars', fetchCarsData);
 
     const { t } = useTranslation();
+
+    // redux options
+
+    const dispatch = useDispatch();
+    let savedProducts = useSelector((state) => state.savedProducts.products);
+
+    function saveProduct(item) {
+        dispatch(addProductsSaved(savedProducts?.includes(item) ? [...savedProducts?.filter((c) => c != item)] : [...savedProducts?.filter((c) => c != item), item]));
+    };
 
     return (
         data?.data?.filter((c) => c.used == "used").length != 0 &&
@@ -49,6 +60,13 @@ const UsedCars = ({ changeProdValue }) => {
                 >
                     {data?.data?.filter((c) => c.used == "used")?.map((item) => (
                         <SwiperSlide key={item.id} className="product gap-1">
+                            <button className="heart-icon" onClick={() => saveProduct(item.id)}>
+                                {savedProducts?.includes(item.id) ?
+                                    <HeartIcon />
+                                    :
+                                    <HeartOIcon />
+                                }
+                            </button>
                             <Link to={`/products/${item.id}`}>
                                 <img src={item.image1} alt="img" className='img' />
                             </Link>
@@ -61,6 +79,13 @@ const UsedCars = ({ changeProdValue }) => {
                     ))}
                     {data?.data?.filter((c) => c.used == "used")?.map((item) => (
                         <SwiperSlide key={item.id} className="product gap-1">
+                            <button className="heart-icon" onClick={() => saveProduct(item.id)}>
+                                {savedProducts?.includes(item.id) ?
+                                    <HeartIcon />
+                                    :
+                                    <HeartOIcon />
+                                }
+                            </button>
                             <Link to={`/products/${item.id}`}>
                                 <img src={item.image1} alt="img" className='img' />
                             </Link>

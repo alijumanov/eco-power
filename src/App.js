@@ -1,16 +1,20 @@
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import Modal from "./components/Modal";
 import About from "./components/About";
+import { Provider } from 'react-redux';
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Products from "./components/Products";
 import HomeRouter from "./routes/HomeRouter";
+import { persistor, store } from './redux/store';
 import Categories from "./components/Categories";
 import ScrollToTop from "./components/ScrollToTop";
 import ContactModal from "./components/ContactModal";
+import { PersistGate } from 'redux-persist/integration/react';
 import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SavedProducts from "./components/SavedProducts";
 
 function App() {
 
@@ -110,29 +114,36 @@ function App() {
   }, [])
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
-        {showLoader &&
-          <Loader />
-        }
-        <ScrollToTop />
-        <Navbar changeScrollFaq={changeScrollFaq} changeScrollAbout={changeScrollAbout} changeScrollTopCars={changeScrollTopCars} changeScrollCategories={changeScrollCategories} changeScrollVideoReviews={changeScrollVideoReviews} />
-        <Routes>
-          <Route path="/" element={<HomeRouter changeProdValue={changeProdValue} faqPage={faqPage} aboutPage={aboutPage} topCarsPage={topCarsPage} categoriesPage={categoriesPage} videoReviewsPage={videoReviewsPage} usedCarsPage={usedCarsPage} advantagePage={advantagePage} calculatePage={calculatePage} />} />
-          <Route path="/about" element={<About changeModal={changeModal} />} />
-          <Route path="/categories/:id" element={<Categories changeProdValue={changeProdValue} />} />
-          <Route path="/all-products" element={<Categories changeProdValue={changeProdValue} />} />
-          <Route path="/products/:id" element={<Products changeProdValue={changeProdValue} />} />
-        </Routes>
-        <Footer changeScrollAdvantage={changeScrollAdvantage} changeScrollFaq={changeScrollFaq} changeScrollCalculate={changeScrollCalculate} changeScrollUsedCars={changeScrollUsedCars} changeScrollAbout={changeScrollAbout} changeScrollTopCars={changeScrollTopCars} changeScrollCategories={changeScrollCategories} changeScrollVideoReviews={changeScrollVideoReviews} />
-        {showModal &&
-          <Modal changeModal={changeModal} />
-        }
-        {showContactModal &&
-          <ContactModal changeModal={changeModal} changeContactModal={changeContactModal} prodValue={prodValue} />
-        }
-      </BrowserRouter>
-    </QueryClientProvider>
+    <Suspense fallback={<div>LOADING...</div>}>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <PersistGate persistor={persistor}>
+            <BrowserRouter>
+              {showLoader &&
+                <Loader />
+              }
+              <ScrollToTop />
+              <Navbar changeScrollFaq={changeScrollFaq} changeScrollAbout={changeScrollAbout} changeScrollTopCars={changeScrollTopCars} changeScrollCategories={changeScrollCategories} changeScrollVideoReviews={changeScrollVideoReviews} />
+              <Routes>
+                <Route path="/" element={<HomeRouter changeProdValue={changeProdValue} faqPage={faqPage} aboutPage={aboutPage} topCarsPage={topCarsPage} categoriesPage={categoriesPage} videoReviewsPage={videoReviewsPage} usedCarsPage={usedCarsPage} advantagePage={advantagePage} calculatePage={calculatePage} />} />
+                <Route path="/about" element={<About changeModal={changeModal} />} />
+                <Route path="/categories/:id" element={<Categories changeProdValue={changeProdValue} />} />
+                <Route path="/all-products" element={<Categories changeProdValue={changeProdValue} />} />
+                <Route path="/products/:id" element={<Products changeProdValue={changeProdValue} />} />
+                <Route path="/saved" element={<SavedProducts changeProdValue={changeProdValue} />} />
+              </Routes>
+              <Footer changeScrollAdvantage={changeScrollAdvantage} changeScrollFaq={changeScrollFaq} changeScrollCalculate={changeScrollCalculate} changeScrollUsedCars={changeScrollUsedCars} changeScrollAbout={changeScrollAbout} changeScrollTopCars={changeScrollTopCars} changeScrollCategories={changeScrollCategories} changeScrollVideoReviews={changeScrollVideoReviews} />
+              {showModal &&
+                <Modal changeModal={changeModal} />
+              }
+              {showContactModal &&
+                <ContactModal changeModal={changeModal} changeContactModal={changeContactModal} prodValue={prodValue} />
+              }
+            </BrowserRouter>
+          </PersistGate>
+        </Provider>
+      </QueryClientProvider>
+    </Suspense>
   );
 }
 

@@ -7,8 +7,10 @@ import { Link } from 'react-router-dom';
 import { fetchTopCarsData } from '../api/api';
 import { useTranslation } from 'react-i18next';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { PlayIcon, RightIcon } from '../assets/svgicons';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProductsSaved } from '../redux/actions/planActions';
 import { getDescription, getName } from '../languages/language';
+import { HeartIcon, HeartOIcon, PlayIcon, RightIcon } from '../assets/svgicons';
 
 const TopProducts = ({ changeProdValue }) => {
 
@@ -16,7 +18,18 @@ const TopProducts = ({ changeProdValue }) => {
 
     const { data } = useQuery('top-cars', fetchTopCarsData);
 
+    // i18next
+
     const { t } = useTranslation();
+
+    // redux options
+
+    const dispatch = useDispatch();
+    let savedProducts = useSelector((state) => state.savedProducts.products);
+
+    function saveProduct(item) {
+        dispatch(addProductsSaved(savedProducts?.includes(item) ? [...savedProducts?.filter((c) => c != item)] : [...savedProducts?.filter((c) => c != item), item]));
+    };
 
     return (
         <div className='TopProducts parent'>
@@ -30,13 +43,20 @@ const TopProducts = ({ changeProdValue }) => {
                 </div>
                 {data?.data?.filter((c) => c.top == true)?.slice(0, 1).map((item) => (
                     <Link to={`/products/${item.id}`} key={item.id} className="big-product pd-2">
+                        <button className="heart-icon" onClick={() => saveProduct(item.id)}>
+                            {savedProducts?.includes(item.id) ?
+                                <HeartIcon />
+                                :
+                                <HeartOIcon />
+                            }
+                        </button>
                         <img src={item.image1} alt="back-img" className="back-img" />
                         <div className="texts gap-1">
                             <div className="head">
                                 <h1 className="name">{getName(item)}</h1>
                                 <div className="name round-07 best">{t("best")}</div>
                             </div>
-                            <p className="big-text">{getDescription(item)}</p>
+                            <p className="big-text mtop-3">{getDescription(item)}</p>
                         </div>
                         <div className="links">
                             <div className="explore"><RightIcon /></div>
@@ -63,36 +83,63 @@ const TopProducts = ({ changeProdValue }) => {
                 >
                     {data?.data?.filter((c) => c.top == true)?.slice(1).map((item) => (
                         <SwiperSlide key={item.id} className="product gap-1">
+                            <button className="heart-icon" onClick={() => saveProduct(item.id)}>
+                                {savedProducts?.includes(item.id) ?
+                                    <HeartIcon />
+                                    :
+                                    <HeartOIcon />
+                                }
+                            </button>
                             <Link to={`/products/${item.id}`}>
                                 <img src={item.image1} alt="img" className='img' />
                             </Link>
                             <Link to={`/products/${item.id}`} className="texts">
                                 <p className="big-text">{getName(item)} <span>nimadir nimadir</span></p>
-                                <p className="min-text">{item.price} $</p>
+                                <p className="min-text">{t("price")}: {item.price} $</p>
+                                <p className="desc min-text">{getDescription(item).split('\r\n').slice(0, 1)}</p>
+                                <p className="desc min-text">{getDescription(item).split('\r\n').slice(1, 2)}</p>
                             </Link>
                             <button className="explore min-text pd-05" onClick={() => changeProdValue(item.name_uz)}>{t("buy")}</button>
                         </SwiperSlide>
                     ))}
                     {data?.data?.filter((c) => c.top == true)?.slice(1).map((item) => (
                         <SwiperSlide key={item.id} className="product gap-1">
+                            <button className="heart-icon" onClick={() => saveProduct(item.id)}>
+                                {savedProducts?.includes(item.id) ?
+                                    <HeartIcon />
+                                    :
+                                    <HeartOIcon />
+                                }
+                            </button>
                             <Link to={`/products/${item.id}`}>
                                 <img src={item.image1} alt="img" className='img' />
                             </Link>
                             <Link to={`/products/${item.id}`} className="texts">
                                 <p className="big-text">{getName(item)} <span>nimadir nimadir</span></p>
-                                <p className="min-text">{item.price} $</p>
+                                <p className="min-text">{t("price")}: {item.price} $</p>
+                                <p className="desc min-text">{getDescription(item).split('\r\n').slice(0, 1)}</p>
+                                <p className="desc min-text">{getDescription(item).split('\r\n').slice(1, 2)}</p>
                             </Link>
                             <button className="explore min-text pd-05" onClick={() => changeProdValue(item.name_uz)}>{t("buy")}</button>
                         </SwiperSlide>
                     ))}
                     {data?.data?.filter((c) => c.top == true)?.slice(1).map((item) => (
                         <SwiperSlide key={item.id} className="product gap-1">
+                            <button className="heart-icon" onClick={() => saveProduct(item.id)}>
+                                {savedProducts?.includes(item.id) ?
+                                    <HeartIcon />
+                                    :
+                                    <HeartOIcon />
+                                }
+                            </button>
                             <Link to={`/products/${item.id}`}>
                                 <img src={item.image1} alt="img" className='img' />
                             </Link>
                             <Link to={`/products/${item.id}`} className="texts">
                                 <p className="big-text">{getName(item)} <span>nimadir nimadir</span></p>
-                                <p className="min-text">{item.price} $</p>
+                                <p className="min-text">{t("price")}: {item.price} $</p>
+                                <p className="desc min-text">{getDescription(item).split('\r\n').slice(0, 1)}</p>
+                                <p className="desc min-text">{getDescription(item).split('\r\n').slice(1, 2)}</p>
                             </Link>
                             <button className="explore min-text pd-05" onClick={() => changeProdValue(item.name_uz)}>{t("buy")}</button>
                         </SwiperSlide>

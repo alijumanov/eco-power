@@ -5,7 +5,7 @@
 
         .categories {
             display: grid;
-            grid-template-columns: repeat(3, 3fr);
+            grid-template-columns: repeat(4, 4fr);
 
             @media (max-width:767px) {
                 grid-template-columns: repeat(1, 1fr);
@@ -17,8 +17,8 @@
                 .img {
                     max-width: 100%;
                     min-width: 100%;
-                    max-height: 13vw;
-                    min-height: 13vw;
+                    max-height: 9vw;
+                    min-height: 9vw;
                     object-fit: cover;
                     // background-color: rgba(218, 218, 218, 0.681);
                     border: solid 1px rgb(207, 207, 207);
@@ -34,15 +34,15 @@
                     align-items: flex-start;
                     justify-content: space-between;
 
-                    .big-text {
-                        width: 60%;
+                    .text {
+                        width: 40%;
                         font-weight: 400;
                         font-family: craft-400;
                     }
 
                     .explore {
                         gap: 10px;
-                        width: 42%;
+                        width: 60%;
                         display: flex;
                         align-items: center;
                         justify-content: flex-end;

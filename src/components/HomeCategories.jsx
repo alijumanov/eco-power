@@ -24,8 +24,8 @@ const HomeCategories = () => {
                         <Link to={`/categories/${item.id}`} key={item.id} className="category">
                             <img src={item.image} alt="img" className="img" />
                             <div className="top-texts mtop-1-5">
-                                <p className="big-text">{getName(item)}</p>
-                                <div className="big-text explore">
+                                <p className="text">{getName(item)}</p>
+                                <div className="text explore">
                                     {t("all_brands")}
                                     <div className="icon"><PlayIcon /></div>
                                 </div>

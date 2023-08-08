@@ -58,6 +58,7 @@
     "nav3": "Categories",
     "nav4": "Overview",
     "nav5": "FAQ",
+    "nav6": "Saved",
     "obzor": "Video views",
     "price": "Price",
     "rasxod": "Expense",
@@ -76,5 +77,10 @@
     "why_us_name1": "Avant-garde design",
     "why_us_name2": "Technological innovations",
     "why_us_name3": "Quick access to work",
-    "hamkorlar": "What do partners get?"
+    "hamkorlar": "What do partners get?",
+    "card_1": "Вы подбираете электромобиль, мы даём подтверждение о его наличии на нашем складе в Китае",
+    "card_2": "Вы подбираете электромобиль, мы даём подтверждение о его наличии на нашем складе в Китае",
+    "card_3": "Вы подбираете электромобиль, мы даём подтверждение о его наличии на нашем складе в Китае",
+    "card_4": "Вы подбираете электромобиль, мы даём подтверждение о его наличии на нашем складе в Китае",
+    "card_5": "Вы подбираете электромобиль, мы даём подтверждение о его наличии на нашем складе в Китае"
 }

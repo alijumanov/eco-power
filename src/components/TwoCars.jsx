@@ -19,8 +19,8 @@ const TwoCars = () => {
             <div className="left gap-1">
                 <div className="texts gap-1">
                     <h1 className="title">Tesla Model Y</h1>
-                    <p className="big-text">{t("price")}:34.000 $</p>
-                    <p className="big-text c1">{t("rasxod")}: 100.000 {t("sum")} / 10.000 {t("km")}</p>
+                    <p className="big-text">{t("price")}: 34.000 $</p>
+                    <p className="big-text c1">{t("rasxod")}: {Math.ceil(rangeValue * 260)} {t("sum")}</p>
                 </div>
                 <img src={Img1} alt="img" className="img" />
             </div>
@@ -31,8 +31,8 @@ const TwoCars = () => {
             <div className="right">
                 <div className="texts gap-1">
                     <h1 className="title">Equenox Chevrolet</h1>
-                    <p className="big-text">{t("price")}:35.000 $</p>
-                    <p className="big-text c1">{t("rasxod")}: 100.000 {t("sum")} / 10.000 {t("km")}</p>
+                    <p className="big-text">{t("price")}: 35.000 $</p>
+                    <p className="big-text c1">{t("rasxod")}: {Math.ceil(rangeValue * 1100)} {t("sum")}</p>
                 </div>
                 <img src={Img2} alt="img" className="img" />
             </div>

@@ -1,83 +1,23 @@
-.Categories {
-    padding-top: 7vw !important;
-    background-color: #F8F8F8;
-
-    @media (max-width:767px) {
-        padding-top: 20vw !important;
-    }
-
+.SavedProducts {
     .wrapper {
+        width: 100%;
         display: flex;
+        padding-top: 10vw;
         min-height: 100vh;
-        padding-left: 5vw;
-        padding-right: 5vw;
-        flex-direction: row;
-        justify-content: flex-end;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
 
-        @media (max-width:767px) {
-            gap: 6vw;
-            flex-direction: column;
-            justify-content: flex-start;
-        }
-
-        .left {
-            top: 8vw;
-            left: 5vw;
-            width: 25%;
-            display: flex;
-            position: fixed;
-            flex-direction: column;
-            height: calc(100vh - 10vw);
-            background-color: white;
-            justify-content: space-between;
-
-            @media (max-width:767px) {
-                width: 100%;
-                height: auto;
-                overflow: auto;
-                position: inherit;
-                flex-direction: row;
-                justify-content: flex-start;
-            }
-
-            .explore {
-                width: 100%;
-                padding: 1vw 2vw;
-                border-radius: 50px;
-                -webkit-border-radius: 50px;
-                -moz-border-radius: 50px;
-                -ms-border-radius: 50px;
-                -o-border-radius: 50px;
-                text-decoration: none;
-                border: solid 1px black;
-                background-color: white;
-
-                @media (max-width:767px) {
-                    display: flex;
-                    font-size: 3vw;
-                    min-width: 50vw;
-                    padding: 2vw 3vw;
-                    align-items: center;
-                    justify-content: center;
-                }
-
-                &:hover {
-                    color: white;
-                    background-color: black;
-                }
-            }
-
-            .active {
-                color: white;
-                background-color: black;
-            }
+        .title {
+            width: 100%;
+            padding: 0;
+            text-align: center;
         }
 
         .right {
-            width: 67%;
             display: grid;
             align-items: flex-start;
-            grid-template-columns: repeat(3, 3fr);
+            grid-template-columns: repeat(4, 4fr);
 
             @media (max-width:767px) {
                 width: 100%;
