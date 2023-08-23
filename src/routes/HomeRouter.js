@@ -17,14 +17,14 @@ const HomeRouter = ({ changeProdValue, faqPage, aboutPage, topCarsPage, categori
     return (
         <>
             <Header changeProdValue={changeProdValue} />
+            <div ref={topCarsPage}>
+                <TopProducts changeProdValue={changeProdValue} />
+            </div>
             <div ref={categoriesPage}>
                 <HomeCategories />
             </div>
             <div ref={usedCarsPage}>
                 <UsedCars changeProdValue={changeProdValue} />
-            </div>
-            <div ref={topCarsPage}>
-                <TopProducts changeProdValue={changeProdValue} />
             </div>
             <StagesCooperation topCarsPage={topCarsPage} />
             <div ref={calculatePage}>

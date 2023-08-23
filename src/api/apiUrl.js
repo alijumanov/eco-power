@@ -1,4 +1,4 @@
-const BASE_URL = `http://api.eco-power.uz/api`;
+const BASE_URL = `https://api.eco-power.uz/api`;
 
 export const FAQ_API_URL = `${BASE_URL}/faq`;
 export const CARS_API_URL = `${BASE_URL}/cars`;

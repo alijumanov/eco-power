@@ -59,50 +59,50 @@ const Products = ({ changeProdValue }) => {
                                 }
                             </div>
                         </div>
-                        <div className="infos gap-1">
+                        <div className="infos">
                             <h1 className="sub-title">{getName(item)}</h1>
-                            <div className="name" style={{ fontWeight: "600" }}>{t("price")}: <h3 className="name">{item.price} $</h3></div>
-                            <div className="desc gap-1">
+                            <div className="name mtop-1" style={{ fontWeight: "600" }}>{t("price")}: <h3 className="name">{item.price} $</h3></div>
+                            <div className="desc pd-1 gap-1 mtop-1">
                                 <div className="icon"><MotorIcon /></div>
                                 <p className="big-text">{getDescription(item).split('\r\n').slice(0, 1)}</p>
                             </div>
-                            <div className="desc gap-1">
+                            <div className="desc pd-1 gap-1">
                                 <div className="icon"><BatteryIcon /></div>
                                 <p className="big-text">{getDescription(item).split('\r\n').slice(1, 2)}</p>
                             </div>
-                            <div className="desc gap-1">
+                            <div className="desc pd-1 gap-1">
                                 <div className="icon"><DistanceIcon /></div>
                                 <p className="big-text">{getDescription(item).split('\r\n').slice(2, 3)}</p>
                             </div>
-                            <div className="desc gap-1">
+                            <div className="desc pd-1 gap-1">
                                 <div className="icon"><WheelIcon /></div>
                                 <p className="big-text">{getDescription(item).split('\r\n').slice(3, 4)}</p>
                             </div>
-                            <div className="desc gap-1">
+                            <div className="desc pd-1 gap-1">
                                 <div className="icon"><SpeedIcon /></div>
                                 <p className="big-text">{getDescription(item).split('\r\n').slice(4, 5)}</p>
                             </div>
-                            <div className="desc gap-1">
+                            <div className="desc pd-1 gap-1">
                                 <div className="icon"><MaxSpeedIcon /></div>
                                 <p className="big-text">{getDescription(item).split('\r\n').slice(5, 6)}</p>
                             </div>
-                            <div className="desc gap-1">
+                            <div className="desc pd-1 gap-1">
                                 <div className="icon"><HourGlassIcon /></div>
                                 <p className="big-text">{getDescription(item).split('\r\n').slice(6, 7)}</p>
                             </div>
-                            <div className="desc gap-1">
+                            <div className="desc pd-1 gap-1">
                                 <div className="icon"><CabelIcon /></div>
                                 <p className="big-text">{getDescription(item).split('\r\n').slice(7, 8)}</p>
                             </div>
-                            <div className="desc gap-1">
+                            <div className="desc pd-1 gap-1">
                                 <div className="icon"><RulerIcon /></div>
                                 <p className="big-text">{getDescription(item).split('\r\n').slice(8, 9)}</p>
                             </div>
-                            <div className="desc gap-1">
+                            <div className="desc pd-1 gap-1">
                                 <div className="icon"><PeopleIcon /></div>
                                 <p className="big-text">{getDescription(item).split('\r\n').slice(9, 10)}</p>
                             </div>
-                            <div className="desc gap-1">
+                            <div className="desc pd-1 gap-1">
                                 <div className="icon"><WeightIcon /></div>
                                 <p className="big-text">{getDescription(item).split('\r\n').slice(10, 11)}</p>
                             </div>
