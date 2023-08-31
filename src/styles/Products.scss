@@ -23,6 +23,22 @@
                 width: 100%;
             }
 
+            .sub-title,
+            .name {
+                gap: 2.5vw;
+                width: 100%;
+                display: flex;
+                align-items: center;
+
+                h3 {
+                    color: dodgerblue;
+                }
+
+                @media (min-width:767.1px) {
+                    display: none;
+                }
+            }
+
             .main-img {
                 max-width: 100%;
                 min-width: 100%;
@@ -67,6 +83,7 @@
                     @media (max-width:767px) {
                         max-height: 15vw;
                         min-height: 15vw;
+                        border-color: rgb(206, 206, 206);
                     }
                 }
             }
@@ -88,8 +105,19 @@
                 display: flex;
                 align-items: center;
 
+                h3 {
+                    color: dodgerblue;
+                }
+
                 @media (max-width:767px) {
                     gap: 2.5vw;
+                    display: none;
+                }
+            }
+
+            .sub-title {
+                @media (max-width:767px) {
+                    display: none;
                 }
             }
 
@@ -130,7 +158,7 @@
                 font-weight: 600;
                 padding: 1vw 7vw;
                 font-family: craft-600;
-                background-color: black;
+                background-color: dodgerblue;
 
                 @media (max-width:767px) {
                     width: 100%;

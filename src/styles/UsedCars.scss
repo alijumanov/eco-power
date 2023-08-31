@@ -82,6 +82,7 @@
                 }
 
                 .min-text {
+                    color: red;
                     opacity: 0.5;
                     margin-top: 0.5vw;
                 }
@@ -93,11 +94,11 @@
                 cursor: pointer;
                 font-weight: 600;
                 font-family: craft-600;
-                border: solid 1px black;
-                background-color: black;
+                border: solid 1px dodgerblue;
+                background-color: dodgerblue;
 
                 &:hover {
-                    color: black;
+                    color: dodgerblue;
                     background-color: white;
                 }
             }

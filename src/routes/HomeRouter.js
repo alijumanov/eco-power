@@ -12,6 +12,7 @@ import TopProducts from '../components/TopProducts';
 import VideoReviews from '../components/VideoReviews';
 import HomeCategories from '../components/HomeCategories';
 import StagesCooperation from '../components/StagesCooperation';
+import Lenta from '../components/Lenta';
 
 const HomeRouter = ({ changeProdValue, faqPage, aboutPage, topCarsPage, categoriesPage, videoReviewsPage, usedCarsPage, advantagePage, calculatePage }) => {
     return (
@@ -20,6 +21,7 @@ const HomeRouter = ({ changeProdValue, faqPage, aboutPage, topCarsPage, categori
             <div ref={topCarsPage}>
                 <TopProducts changeProdValue={changeProdValue} />
             </div>
+            <Lenta />
             <div ref={categoriesPage}>
                 <HomeCategories />
             </div>

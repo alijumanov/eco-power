@@ -46,6 +46,8 @@ const Products = ({ changeProdValue }) => {
                                     <HeartOIcon />
                                 }
                             </button>
+                            <h1 className="sub-title">{getName(item)}</h1>
+                            <div className="name mtop-1" style={{ fontWeight: "600" }}>{t("price")}: <h3 className="name">{item.price} $</h3></div>
                             <img src={mainImg ? mainImg : item.image1} alt="image" className="main-img" />
                             <div className="additional-imgs">
                                 {item.image1 &&
