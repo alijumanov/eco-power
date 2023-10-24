@@ -1,84 +1,51 @@
 .TwoCars {
     display: flex;
-    padding: 3vw 0 !important;
+    align-items: flex-start;
+    padding: 3vw 5vw !important;
     background-color: white;
     justify-content: space-between;
 
     @media (max-width:767px) {
         flex-wrap: wrap;
-        padding: 6vw 0 !important;
+        padding: 6vw 3vw !important;
     }
 
-    .left {
-        width: 42%;
+    .right {
+        width: 75%;
         display: flex;
-        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
 
         @media (max-width:767px) {
-            width: 75%;
+            gap: 3vw;
+            flex-direction: column-reverse;
         }
 
         .img {
             height: auto;
-            max-width: 100%;
-            min-width: 100%;
-        }
-
-        .texts {
-            z-index: 2;
-            display: flex;
-            position: sticky;
-            padding-left: 10vw;
-            flex-direction: column;
+            max-width: 60%;
+            min-width: 60%;
 
             @media (max-width:767px) {
-                padding-left: 5vw;
-            }
-        }
-
-        .c1 {
-            font-weight: 700;
-            font-family: zonapro-700;
-        }
-    }
-
-    .right {
-        width: 42%;
-        display: flex;
-        align-items: flex-end;
-        flex-direction: column;
-
-        @media (max-width:767px) {
-            width: 75%;
-            margin-top: -6vw;
-            align-items: flex-start;
-        }
-
-        .img {
-            max-width: 90%;
-            min-width: 90%;
-
-            @media (max-width:767px) {
-                transform: rotateY(180deg);
-                -webkit-transform: rotateY(180deg);
-                -moz-transform: rotateY(180deg);
-                -ms-transform: rotateY(180deg);
-                -o-transform: rotateY(180deg);
+                max-width: 100%;
+                min-width: 100%;
             }
         }
 
         .texts {
+            width: 35%;
             z-index: 2;
             display: flex;
             position: sticky;
-            padding-right: 10vw;
-            margin-bottom: -5vw;
             flex-direction: column;
 
             @media (max-width:767px) {
-                margin-bottom: 0;
-                padding-right: 0;
-                padding-left: 5vw;
+                width: 100%;
+            }
+
+            .desc {
+                background-color: white;
+                border: solid 1px rgb(221, 221, 221);
             }
         }
 
@@ -90,19 +57,24 @@
 
     .middle {
         width: 15%;
+        height: 25vw;
         display: flex;
         align-items: center;
         flex-direction: column;
 
         @media (max-width:767px) {
-            width: 25%;
+            width: 20%;
+
+            .title {
+                font-size: 4vw;
+            }
         }
 
         .range {
-            width: 26vw;
+            width: 20vw;
             height: 1.5vw;
             display: flex;
-            margin-top: 12vw;
+            margin-top: 9vw;
             appearance: none;
             position: relative;
             align-items: center;
@@ -126,9 +98,9 @@
             }
 
             @media (max-width:767px) {
-                width: 130vw;
                 height: 4vw;
-                margin-top: 65vw;
+                width: 95vw;
+                margin-top: 50vw;
             }
         }
 

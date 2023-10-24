@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/Navbar.scss';
-import Logo from '../assets/images/logo.png';
+import Logo from '../assets/images/logo3.png';
 import { useTranslation } from 'react-i18next';
 import { changeLang } from '../languages/language';
 import { Link, useLocation } from 'react-router-dom';
@@ -71,7 +71,7 @@ const Navbar = ({ changeScrollFaq, changeScrollAbout, changeScrollTopCars, chang
                         <Link to="/saved" className='text'>
                             <div className="icon"><LightHeartIcon />  <span className='min-text'>{savedProducts?.length}</span></div>
                         </Link>
-                        <a href="tel:+998935559551" className="tel-btn round-07 text ver-2">+99893 555 95 51</a>
+                        <a href="tel:+998990880088" className="tel-btn round-07 text ver-2">+99899 088 00 88</a>
                         <div className="close-icon ver-2" onClick={() => setShowMenu(false)}><CloseIcon /></div>
                     </div>
                     <div className="language">
@@ -87,7 +87,7 @@ const Navbar = ({ changeScrollFaq, changeScrollAbout, changeScrollTopCars, chang
                             <div className="contrast-0" onClick={() => setLanguage(!language)}></div>
                         }
                     </div>
-                    <a href="tel:+998935559551" className="tel-btn round-07 text ver-1">+99893 555 95 51</a>
+                    <a href="tel:+998990880088" className="tel-btn round-07 text ver-1">+99899 088 00 88</a>
                     <div className="menu-icon round-07 ver-2" onClick={() => setShowMenu(true)}><MenuIcon /></div>
                 </div>
             </div>

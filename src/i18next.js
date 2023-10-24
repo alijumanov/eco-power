@@ -8,7 +8,7 @@ i18next
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: "uz",
+    fallbackLng: "ru",
 
     ns: ["default"],
     defaultNS: "default",
@@ -17,7 +17,7 @@ i18next
       order: ["localStorage", "cookie", "htmlTag", "path", "subdomain"],
       caches: ["localStorage", "cookie"]
     },
-    supportedLngs: ["uz", "ru", "en"],
+    supportedLngs: ["ru", "uz", "en"],
     interpolation: {
       escapeValue: false
     },

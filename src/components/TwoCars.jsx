@@ -1,12 +1,26 @@
 import React, { useState } from 'react';
 import '../styles/TwoCars.scss';
-import Img1 from '../assets/images/car1.png';
-import Img2 from '../assets/images/car2.png';
 import { useTranslation } from 'react-i18next';
+import FirstImg1 from '../assets/images/car1.png';
+import FirstImg2 from '../assets/images/car2.png';
+import FirstImg3 from '../assets/images/car1.png';
+import FirstImg4 from '../assets/images/car1.png';
+import FirstImg5 from '../assets/images/car1.png';
+import FirstImg6 from '../assets/images/car1.png';
+import FirstImg7 from '../assets/images/car1.png';
+import SecondImg1 from '../assets/images/car2.png';
+import SecondImg2 from '../assets/images/car1.png';
+import SecondImg3 from '../assets/images/car2.png';
+import SecondImg4 from '../assets/images/car2.png';
+import SecondImg5 from '../assets/images/car2.png';
+import SecondImg6 from '../assets/images/car2.png';
+import SecondImg7 from '../assets/images/car2.png';
+import { dataSpeedCars } from '../api/api';
+import { getDescription, getName } from '../languages/language';
 
 const TwoCars = () => {
 
-    const [rangeValue, setRangeValue] = useState(500);
+    const [rangeValue, setRangeValue] = useState(1);
 
     function changeRange(value) {
         setRangeValue(value)
@@ -16,26 +30,22 @@ const TwoCars = () => {
 
     return (
         <div className='TwoCars parent'>
-            <div className="left gap-1">
-                <div className="texts gap-1">
-                    <h1 className="title">Tesla Model Y</h1>
-                    <p className="big-text">{t("price")}: 34.000 $</p>
-                    <p className="big-text c1">{t("rasxod")}: {Math.ceil(rangeValue * 260)} {t("sum")}</p>
-                </div>
-                <img src={Img1} alt="img" className="img" />
-            </div>
             <div className="middle gap-1">
-                <h1 className="title">{rangeValue} {t("km")}</h1>
-                <input type="range" className='range' min={0} max={650} value={rangeValue} onChange={(e) => changeRange(e.target.value)} />
+                <h1 className="title">{(Math.ceil(rangeValue) + 2) * 100} {t("km")}</h1>
+                <input type="range" className='range' min={1} max={5} value={rangeValue} onChange={(e) => changeRange(e.target.value)} />
             </div>
-            <div className="right">
-                <div className="texts gap-1">
-                    <h1 className="title">Equenox Chevrolet</h1>
-                    <p className="big-text">{t("price")}: 35.000 $</p>
-                    <p className="big-text c1">{t("rasxod")}: {Math.ceil(rangeValue * 1100)} {t("sum")}</p>
+            {dataSpeedCars?.map((item) => (
+                item?.id == rangeValue &&
+                <div key={item?.id} className="right">
+                    <img src={item?.image} alt="img" className="img" />
+                    <div className="texts gap-1">
+                        <h1 className="sub-title">{getName(item)}</h1>
+                        {getDescription(item)?.split(';')?.map((c, index) => (
+                            <div key={index} className="desc big-text pd-05 round-05">{c}</div>
+                        ))}
+                    </div>
                 </div>
-                <img src={Img2} alt="img" className="img" />
-            </div>
+            ))}
         </div>
     );
 };

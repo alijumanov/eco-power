@@ -11,10 +11,10 @@ import { persistor, store } from './redux/store';
 import Categories from "./components/Categories";
 import ScrollToTop from "./components/ScrollToTop";
 import ContactModal from "./components/ContactModal";
+import SavedProducts from "./components/SavedProducts";
 import { PersistGate } from 'redux-persist/integration/react';
 import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SavedProducts from "./components/SavedProducts";
 
 function App() {
 

@@ -36,7 +36,7 @@ const CEO = () => {
                     <p className="name">{t("about_team")}</p>
                 </div>
                 <p className="text">{t("team_txt")}</p>
-                <p className="text">{t("want_job")} <br /> <a href='tel:+998935559551' className='text explore'>{t("call_center")}</a></p>
+                <p className="text">{t("want_job")} <br /> <a href='tel:+998990880088' className='text explore'>{t("call_center")}</a></p>
                 <div className="bars mtop-3">
                     <div className="bar big-text c1">{t("bar1")}</div>
                     <div className="bar big-text c2">{t("bar2")}</div>
