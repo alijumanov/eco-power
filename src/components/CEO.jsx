@@ -25,7 +25,7 @@ const CEO = () => {
                     </Link>
                 </div>
                 <div className="right">
-                    <img src={Img2} alt="img" className="img" />
+                    <img src={Img1} alt="img" className="img" />
                     <h1 className="sub-title">{t("ceo2")}</h1>
                     <p className="text mtop-1">{t("ceo_txt")}</p>
                 </div>
